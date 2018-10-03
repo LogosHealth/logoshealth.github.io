@@ -4,8 +4,26 @@
         <h1>On your way to Login with Amazon</h1>
         <p>Enjoy the ride.</p>
         <p>I'm hosted with GitHub Pages.</p>
-        <script>
-            window.location.href = https://www.amazon.com/ap/oa?client_id=amzn1.application-oa2-client.b7a978f5efc248a098d2c0588dfb8392&scope=profile&response_type=token&state=7777777&redirect_uri=https://logoshealth.github.io/complete.html
+        <script type="text/javascript">
+            //compose url
+            // first get the state
+            var state = getParameterByName("state", window.location.href)	
+            var redir = "https://www.amazon.com/ap/oa?client_id=amzn1.application-oa2-client.b7a978f5efc248a098d2c0588dfb8392&scope=profile&response_type=token&state="+state+"&redirect_uri=https://logoshealth.github.io/complete.html"
+            
+            //redirect to URL
+            window.location.href = redir;
+            
+                function getParameterByName(name, url) {
+                //SHAMELESSLY BORROWED FROM STACK OVERFLOW
+                //SHAMELESSLY BORROWED FROM The YittishNinja
+                if (!url) url = window.location.href;
+                    name = name.replace(/[\[\]]/g, "\\$&");
+                    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+                    results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return '';
+                    return decodeURIComponent(results[2].replace(/\+/g, " "));
+                }	
         </script>
     </body>
 </html>
