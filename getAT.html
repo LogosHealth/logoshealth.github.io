@@ -23,7 +23,8 @@
                 function getParameterByName(name, url) {
                 //SHAMELESSLY BORROWED FROM STACK OVERFLOW
                 //SHAMELESSLY BORROWED FROM The YittishNinja
-                if (!url) url = window.location.href;
+
+                    if (!url) url = window.location.href;
                     name = name.replace(/[\[\]]/g, "\\$&");
                     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
                     results = regex.exec(url);
