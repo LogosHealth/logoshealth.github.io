@@ -8,6 +8,10 @@
   <h1>Heading back to LogosHealth</h1>
   
   <div id="debug">Have a blessed day!</div>
-  
+    <script type="text/javascript">
+      window.onload = function(e){ 
+        window.parent.postMessage(window.location.href, "http://localhost:8080");
+      }            
+  </script>  
 </body>
  </html>
