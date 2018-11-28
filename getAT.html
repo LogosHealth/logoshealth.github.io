@@ -11,9 +11,7 @@
             console.log("Code: " + code);
             
             var redir = "https://api.amazon.com/auth/o2/token";
-            //var myHeaders = new Headers();
-            //myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
-            //myHeaders.append('Cache-Control', 'no-cache');
+            var xhttp = new XMLHttpRequest();
             
             let form = document.createElement('form');
             form.action = redir;
