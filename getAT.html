@@ -27,6 +27,13 @@
             let form = document.createElement('form');
             form.action = redir;
             form.method = 'POST';
+            var myInput = document.createElement('input');
+            myInput.setAttribute('grant_type', 'authorization_code');
+            myInput.setAttribute('code', code);
+            myInput.setAttribute('client_id', "amzn1.application-oa2-client.b7a978f5efc248a098d2c0588dfb8392");
+            myInput.setAttribute('client_secret', "5b8009ce5a4b746d17f57965ce328a55c0847cfd75827101dff671b38fd8f9a9");
+            myInput.setAttribute('redirect_uri', "https%3A%2F%2Flogoshealth.github.io/complete.html);
+            form.appendChild(myInput);
             //form.innerHTML = '<input name="q" value="test">';
             // the form must be in the document to submit it
             document.body.append(form);
