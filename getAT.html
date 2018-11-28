@@ -13,7 +13,7 @@
             var redir = "https://api.amazon.com/auth/o2/token";
             var xhttp = new XMLHttpRequest();
             xhttp.open("POST", redir);
-            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8);
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
             xhttp.onreadystatechange = function() { // Call a function when the state changes.
                 console.log('Begin');
                 if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
