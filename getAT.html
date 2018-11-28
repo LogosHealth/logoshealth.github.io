@@ -27,21 +27,36 @@
             let form = document.createElement('form');
             form.action = redir;
             form.method = 'POST';
+            //myInput.setAttribute('grant_type', 'authorization_code');
             var myInput = document.createElement('input');
             myInput.setAttribute("type", "hidden");
             myInput.setAttribute("name", "grant_type");
             myInput.setAttribute("value", "authorization_code");
-            form.appendChild(myInput);
-
-            
-            
-            
-            //myInput.setAttribute('grant_type', 'authorization_code');
             //myInput.setAttribute('code', code);
+            var myInput2 = document.createElement('input');
+            myInput2.setAttribute("type", "hidden");
+            myInput2.setAttribute("name", "code");
+            myInput2.setAttribute("value", code);
+            form.appendChild(myInput2);
             //myInput.setAttribute('client_id', "amzn1.application-oa2-client.b7a978f5efc248a098d2c0588dfb8392");
+            var myInput3 = document.createElement('input');
+            myInput3.setAttribute("type", "hidden");
+            myInput3.setAttribute("name", "client_id");
+            myInput3.setAttribute("value", "amzn1.application-oa2-client.b7a978f5efc248a098d2c0588dfb8392");
+            form.appendChild(myInput3);
             //myInput.setAttribute('client_secret', "5b8009ce5a4b746d17f57965ce328a55c0847cfd75827101dff671b38fd8f9a9");
+            var myInput4 = document.createElement('input');
+            myInput4.setAttribute("type", "hidden");
+            myInput4.setAttribute("name", "client_secret");
+            myInput4.setAttribute("value", "5b8009ce5a4b746d17f57965ce328a55c0847cfd75827101dff671b38fd8f9a9");
+            form.appendChild(myInput4);
             //myInput.setAttribute('redirect_uri', "https%3A%2F%2Flogoshealth.github.io/complete.html");
-            //form.innerHTML = '<input name="q" value="test">';
+            var myInput5 = document.createElement('input');
+            myInput5.setAttribute("type", "hidden");
+            myInput5.setAttribute("name", "redirect_uri");
+            myInput5.setAttribute("value", "https://logoshealth.github.io/complete.html");
+            form.appendChild(myInput5);
+            
             // the form must be in the document to submit it
             document.body.append(form);
             form.submit();            
