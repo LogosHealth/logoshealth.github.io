@@ -19,7 +19,7 @@
             
             //redirect to URL
             console.log("body: " + body);
-            document.body = body;
+            document.body = <HTMLInputElement>body;
             let form = document.createElement('form');
             form.action = redir;
             form.method = 'POST';
