@@ -19,6 +19,7 @@
             var redir = "https://api.amazon.com/auth/o2/token";
             var myHeaders = new Headers();
             myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
+            myHeaders.append('Cache-Control', 'no-cache');
             
             //redirect to URL
             console.log("body: " + body);
@@ -29,7 +30,7 @@
             //form.innerHTML = '<input name="q" value="test">';
             // the form must be in the document to submit it
             document.body.append(form);
-            form.submit();            
+            //form.submit();            
             //window.location.href = redir;
             
                 function getParameterByName(name, url) {
