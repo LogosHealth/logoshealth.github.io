@@ -21,7 +21,11 @@
                     //console.log('Done');
                     console.log('Response', this);
                     var resp = this.response;
-                    window.opener.postMessage(resp, "http://localhost:8100");
+                    var jsonObject = JSON.parse(resp);
+                    var access_token = jsonObject.access_token;
+                    var refresh_token = jsonObject.refresh_token;
+                    var url = window.location.href;
+                    window.location.href = url + "&access_token=" + access_token + "&refresh_token=" + refresh_token;
                 }
             }
             
