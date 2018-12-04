@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h1>Final step for Login with Amazon</h1>
+        <h1>Refresh from Login with Amazon</h1>
         <p>Enjoy the ride.</p>
         <p>I'm hosted with GitHub Pages.</p>
         <script type="text/javascript">
             //compose url
             var refresh_token = getParameterByName("refresh_token", window.location.href);	
-            //console.log("Refresh_token: " + refresh_token);
-            
             var redir = "https://api.amazon.com/auth/o2/token";
             var xhttp = new XMLHttpRequest();
             xhttp.open("POST", redir);
@@ -33,17 +31,17 @@
             "&client_secret=5b8009ce5a4b746d17f57965ce328a55c0847cfd75827101dff671b38fd8f9a9";              
             xhttp.send(strBody);
             
-                function getParameterByName(name, url) {
+            function getParameterByName(name, url) {
                 //SHAMELESSLY BORROWED FROM STACK OVERFLOW
                 //SHAMELESSLY BORROWED FROM The YittishNinja
-                    if (!url) url = window.location.href;
-                    name = name.replace(/[\[\]]/g, "\\$&");
-                    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
-                    results = regex.exec(url);
-                    if (!results) return null;
-                    if (!results[2]) return '';
-                    return decodeURIComponent(results[2].replace(/\+/g, " "));
-                }	
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+                results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }	
         </script>
     </body>
 </html>
