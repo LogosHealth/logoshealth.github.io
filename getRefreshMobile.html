@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Final step for Login with Amazon</h1>
+        <p>Enjoy the ride.</p>
+        <p>I'm hosted with GitHub Pages.</p>
+        <script type="text/javascript">
+            //compose url
+            var refresh_token = getParameterByName("refresh_token", window.location.href);	
+            //console.log("Refresh_token: " + refresh_token);
+            
+            var redir = "https://api.amazon.com/auth/o2/token";
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", redir);
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            xhttp.onreadystatechange = function() { // Call a function when the state changes.
+                //console.log('Begin');
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                    // Request finished. Do processing here.
+                    //console.log('Done');
+                    console.log('Response', this);
+                    var resp = this.response;
+                    var jsonObject = JSON.parse(resp);
+                    var access_token = jsonObject.access_token;
+                    var refresh_token = jsonObject.refresh_token;
+                    var url = window.location.href;
+                    window.location.href = url + "&access_token=" + access_token + "&refresh_token=" + refresh_token;
+                }
+            }
+            
+            var strBody = "grant_type=refresh_token&refresh_token="+refresh_token+
+            "&client_id=amzn1.application-oa2-client.b7a978f5efc248a098d2c0588dfb8392"+
+            "&client_secret=5b8009ce5a4b746d17f57965ce328a55c0847cfd75827101dff671b38fd8f9a9";              
+            xhttp.send(strBody);
+            
+            // the form must be in the document to submit it
+            document.body.append(form);
+            //form.submit();            
+            //window.location.href = redir;
+            
+                function getParameterByName(name, url) {
+                //SHAMELESSLY BORROWED FROM STACK OVERFLOW
+                //SHAMELESSLY BORROWED FROM The YittishNinja
+                    if (!url) url = window.location.href;
+                    name = name.replace(/[\[\]]/g, "\\$&");
+                    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+                    results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return '';
+                    return decodeURIComponent(results[2].replace(/\+/g, " "));
+                }	
+        </script>
+    </body>
+</html>
